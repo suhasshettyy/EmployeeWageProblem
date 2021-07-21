@@ -6,35 +6,34 @@ namespace EmployeeWageProblem
 {
     class Employeeproblem
     {
-        public void Monthwage()
+        public void Condition()
         {
-            Random random = new Random();
-            int wageprhr = 20;
-            int hr = 8;
-            int parttimehr = 8;
-            int x = wageprhr * hr;
-            int month = 20;
-            int y = wageprhr * (hr + parttimehr);
-            int empcheck = random.Next(0, 3);
-            switch (empcheck)
+            int emphours = 0;
+            int wageperhour = 20;
+            int dailywage = 0;
+            int workingdayspermonth = 20;
+            int wagespermonth = 0;
+            int totalworkinghoursinamonth = 100;
+            int totalworkingdays = 0;
+            int employeehrinmonth = 0;
+            while (employeehrinmonth <= totalworkinghoursinamonth && totalworkingdays <= workingdayspermonth)
             {
-                case 0:
-                    Console.WriteLine("Employee is absent");
-                    break;
-                case 1:
-                    {
-                        Console.WriteLine("Employee is Present");
-                        Console.WriteLine("Employee Wage is:" + x * month);
+                totalworkingdays++;
+                Random random = new Random();
+                int empcheck = random.Next(0, 2);
+                switch (empcheck)
+                {
+                    case 0:
+                        emphours = 8;
                         break;
-                    }
-                case 2:
-                    {
-                        Console.WriteLine("Employee Parttime Wage is:" + y * month);
+                    case 1:
+                        emphours = 4;
                         break;
-
-                    }
+                }
+                employeehrinmonth = employeehrinmonth + emphours;
             }
-
+            wagespermonth = wageperhour * employeehrinmonth;
+            Console.WriteLine(wagespermonth);
         }
     }
 }
