@@ -6,7 +6,7 @@ namespace EmployeeWageProblem
 {
     class Employeeproblem
     {
-        public void Parttime()
+        public void Usingcase()
         {
             Random random = new Random();
             int wageprhr = 20;
@@ -15,17 +15,23 @@ namespace EmployeeWageProblem
             int x = wageprhr * hr;
             int y = wageprhr * (hr + parttimehr);
             int empcheck = random.Next(0, 3);
-            if (empcheck == 0)
-                Console.WriteLine("Employee is absent");
-            else if (empcheck == 1)
+            switch (empcheck)
             {
-                Console.WriteLine("Employee is Present");
-                Console.WriteLine("Employee Wage is:" + x.ToString());
-            }
-            else
-            {
-                Console.WriteLine("Employee Parttime Wage is:" + y.ToString());
+                case 0:
+                    Console.WriteLine("Employee is absent");
+                    break;
+                case 1:
+                    {
+                        Console.WriteLine("Employee is Present");
+                        Console.WriteLine("Employee Wage is:" + x.ToString());
+                        break;
+                    }
+                case 2:
+                    {
+                        Console.WriteLine("Employee Parttime Wage is:" + y.ToString());
+                        break;
 
+                    }
             }
 
         }

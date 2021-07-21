@@ -7,7 +7,7 @@ namespace EmployeeWageProblem
         public static void Main(string[] args)
         {
             Employeeproblem Employee = new Employeeproblem();
-            Employee.Parttime();
+            Employee.Usingcase();
         }
     }
 }
