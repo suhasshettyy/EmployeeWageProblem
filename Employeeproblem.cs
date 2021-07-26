@@ -6,11 +6,10 @@ namespace EmployeeWageProblem
 {
     class Employeeproblem
     {
-        public void Condition()
+        public int Condition()
         {
             int emphours = 0;
             int wageperhour = 20;
-            int dailywage = 0;
             int workingdayspermonth = 20;
             int wagespermonth = 0;
             int totalworkinghoursinamonth = 100;
@@ -34,6 +33,7 @@ namespace EmployeeWageProblem
             }
             wagespermonth = wageperhour * employeehrinmonth;
             Console.WriteLine(wagespermonth);
+            return wagespermonth;
         }
     }
 }
