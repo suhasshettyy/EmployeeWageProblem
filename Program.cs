@@ -6,10 +6,12 @@ namespace EmployeeWageProblem
     {
         public static void Main(string[] args)
         {
-            Employeeproblem.Company("Infosys", 85, 95, 90);
-            Employeeproblem.Company("TCS", 60, 25, 65);
-            Employeeproblem.Company("HCL", 40, 90, 90);
-
+            EmployeeWageBuilder employeeWageBuilderTCS = new EmployeeWageBuilder("TCS", 30, 28, 125);
+            int dMartWage= employeeWageBuilderTCS.ComputeEmpWage();
+            Console.WriteLine("TCS Total Wage:" + dMartWage);
+            EmployeeWageBuilder employeeWageBuilderDell = new EmployeeWageBuilder("Dell", 25, 28, 125);
+            int relianceWage= employeeWageBuilderDell.ComputeEmpWage();
+            Console.WriteLine("Dell Total Wage:" + relianceWage);
         }
     }
 }

@@ -4,33 +4,50 @@ using System.Text;
 
 namespace EmployeeWageProblem
 {
-    class Employeeproblem
-    {
-        public static int Company(string companyname, int wageperhour, int workingdayspermonth, int totalworkinghoursinamonth)
+        class EmployeeWageBuilder
         {
-            int emphours = 0;
-            int wagespermonth = 0;
-            int totalworkingdays = 0;
-            int employeehrinmonth = 0;
-            while (employeehrinmonth < totalworkinghoursinamonth && totalworkingdays < workingdayspermonth)
+            public const int IS_PART_TIME = 1;
+            public const int IS_FULL_TIME = 2;
+            public string company;
+            public int empRatePerHour;
+            public int numOfWorkingDays;
+            public int maxHoursPerMonth;
+            public int empHrs = 0;
+            public int totalEmpHrs = 0;
+            public int totalWorkingDays = 0;
+            public int totalEmpWage = 0;
+            public EmployeeWageBuilder(string company, int empRatePerHour, int numOfWorkingDays, int maxHoursPerMonth)
             {
-                totalworkingdays++;
-                Random random = new Random();
-                int empcheck = random.Next(0, 2);
-                switch (empcheck)
-                {
-                    case 0:
-                        emphours = 8;
-                        break;
-                    case 1:
-                        emphours = 8;
-                        break;
-                }
-                employeehrinmonth = employeehrinmonth + emphours;
+                this.company = company;
+                this.empRatePerHour = empRatePerHour;
+                this.numOfWorkingDays = numOfWorkingDays;
+                this.maxHoursPerMonth = maxHoursPerMonth;
             }
-            wagespermonth = wageperhour * employeehrinmonth;
-            Console.WriteLine("Company name is " + companyname + " and total wage is " + wagespermonth);
-            return wagespermonth;
+            public int ComputeEmpWage()
+            {
+                while (totalEmpHrs < maxHoursPerMonth &&
+                        totalWorkingDays < numOfWorkingDays)
+                {
+                    totalWorkingDays++;
+                    Random random = new Random();
+                    int empCheck = random.Next(0, 3);
+                    switch (empCheck)
+                    {
+                        case IS_FULL_TIME:
+                            empHrs = 8;
+                            break;
+                        case IS_PART_TIME:
+                            empHrs = 8;
+                            break;
+                        default:
+                            empHrs = 0;
+                            break;
+                    }
+                    totalEmpHrs += empHrs;
+                    Console.WriteLine("Day " + totalWorkingDays + "\nEmp Hr: " + empHrs);
+                }
+                totalEmpWage = totalEmpHrs * empRatePerHour;
+                return totalEmpWage;
+            }
         }
     }
-}
